@@ -6,13 +6,13 @@
 int main(void) {
 	int N;//число вершин
 	int i, j = 0;
-	int **graph;
+	int *graph[i];
 	
 	printf("Input the number of your knots: ");
 	scanf("%d", &N);
 	printf("%d\n", N);
-	int** graph = (int**)malloc(N * sizeof(int*));
-	graph[0] = (int*)malloc(N * sizeof(int));
+	int* graph = (int*)malloc(N * sizeof(int*));//не выделяет память
+	
 	if (!graph) {
 		printf("Allocation failure.");
 		exit(1);
