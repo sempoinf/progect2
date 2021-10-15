@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include<stdlib.h>
+
 int main(void) {
 	int N;//число вершин
 	int i, j = 0;
@@ -9,7 +10,8 @@ int main(void) {
 	printf("Input the number of your knots: ");
 	scanf("%d", &N);
 	printf("%d\n", N);
-	graph = (int**)malloc(N*N * sizeof(int));
+	int** graph = (int**)malloc(N * sizeof(int*));
+	graph[0] = (int*)malloc(N * sizeof(int));
 	if (!graph) {
 		printf("Allocation failure.");
 		exit(1);
@@ -30,10 +32,10 @@ int main(void) {
 		
 		
 		
-		for (i = 0; i < N; i++) {
-		for (j = 0; j < N; j++)
-			printf("%d", graph[i][j]);
-	}
+		//for (i = 0; i < N; i++) {
+		//for (j = 0; j < N; j++)
+			//printf("%d", graph[i][j]);
+	//}
 	
 	
 	
