@@ -7,6 +7,7 @@ int main(void) {
 	int N;//число вершин
 	int i, j = 0;
 	int **graph;
+	
 	printf("Input the number of your knots: ");
 	scanf("%d", &N);
 	printf("%d\n", N);
@@ -24,9 +25,12 @@ int main(void) {
 	i = (getchar() - '0');
 		getchar(); //считываем -
 		j = (getchar() - '0');
-		graph[i][j]++;
+		graph[i-1][j-1]++;
 	
-	
+		if (graph[i - 1][j - 1] > 1) printf("граф не дерево\n");
+		if (i == j) {
+			if(graph[i-1][j-1]>0) printf("граф не дерево\n");
+		}
 		
 		
 		
