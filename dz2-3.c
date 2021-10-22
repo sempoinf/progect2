@@ -15,6 +15,7 @@ int main(void) {
 	printf("%d\n", N);
 	getchar();
 
+	printf("")
 
 	int **graph = (int**)calloc(N, sizeof(int *));
 	for (int i = 0; i < N; i++) {
@@ -30,31 +31,45 @@ int main(void) {
 
 	printf("Input the graph: ");
 
+	FILE *file;
+	file = fopen("./graph.gv", "w+t");
+	//write file
+	fprintf(file, "graph Homework {\n");
 	for (i = 0; i < N; i++) {
 		for (j = 0; j < N; j++) {
 			i = (getchar() - '0');
-			getchar();
+			fprintf(file, "\t%d -- ", i);
+			if (getchar() == ('\n')) {
+				fprintf(file, "%d\n", i); // печать несвязной вершины
+				graph[i - 1][i - 1]++;
+				break;
+			}
 			j = (getchar() - '0');
+			fprintf(file, "%d\n", j);
 			graph[i-1][j-1]++;
 			getchar();
 
 		}
 	}
-
-
-	//if (graph[i - 1][j - 1] > 1) printf("граф не дерево\n");
-	//if (i == j) {
-		//if (graph[i - 1][j - 1] > 0) printf("граф не дерево\n");
-	//}
+	fprintf(file, "}");
+	//close file
+	fclose(file);
 
 
 
+	if (graph[i - 1][j - 1] > 1) printf("граф не дерево\n");
+	if (i == j) {
+		if (graph[i - 1][j - 1] > 0) printf("граф не дерево\n");
+	}
 
 
-	//for (i = 0; i < N; i++) {
-	//for (j = 0; j < N; j++)
-		//printf("%d", graph[i][j]);
-//}
+
+
+
+	for (i = 0; i < N; i++) {
+	for (j = 0; j < N; j++)
+		printf("%d", graph[i][j]);
+}
 
 
 
