@@ -2,26 +2,31 @@
 
 #include <stdio.h>
 #include<stdlib.h>
+int N;
+int **graph;//tree
 
 int main(void) {
-	int N,c;//число вершин
+	int c;//число вершин
 	int i, j = 0;
-	int **graph;//указатель на массив
+	
 
 	printf("Input the number of your knots: ");
 	scanf("%d", &N);
-	//printf("%d\n", N);
-	//graph = (int*)malloc(N*N * sizeof(int));
-	int** graph = (int**)calloc(N, sizeof(int*));
+	printf("%d\n", N);
+	
+	
+	int **graph = (int**)malloc(N * sizeof(int *));
+	for (int i = 0; i < N; i++) {
+		graph[i] = (int*)malloc(N * sizeof(int));
+	}
+	
+	if (!N) {
+		printf("Allocation failure.");
+		exit(1);
+	}
 
-	//if (!graph) {
-		//printf("Allocation failure.");
-		//exit(1);
-	//}
-	//for (i = 0; i < N; i++) {
-		//for (j = 0; j < N; j++)
-			//graph[i][j] = 0;
-	//}
+	
+	
 	printf("Input the graph: ");
 
 	for (i = 0; i < N; i++) {
@@ -30,7 +35,7 @@ int main(void) {
 			getchar();
 			j = (getchar() - '0');
 			graph[i][j]++;
-				
+
 		}
 	}
 
