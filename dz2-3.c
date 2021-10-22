@@ -8,25 +8,26 @@ int **graph;//tree
 int main(void) {
 	int c;//число вершин
 	int i, j = 0;
-	
+
 
 	printf("Input the number of your knots: ");
 	scanf("%d", &N);
 	printf("%d\n", N);
-	
-	
-	int **graph = (int**)malloc(N * sizeof(int *));
+	getchar();
+
+
+	int **graph = (int**)calloc(N, sizeof(int *));
 	for (int i = 0; i < N; i++) {
-		graph[i] = (int*)malloc(N * sizeof(int));
+		graph[i] = (int*)calloc(N, sizeof(int));
 	}
-	
+
 	if (!N) {
 		printf("Allocation failure.");
 		exit(1);
 	}
 
-	
-	
+
+
 	printf("Input the graph: ");
 
 	for (i = 0; i < N; i++) {
@@ -34,16 +35,12 @@ int main(void) {
 			i = (getchar() - '0');
 			getchar();
 			j = (getchar() - '0');
-			graph[i][j]++;
+			graph[i-1][j-1]++;
+			getchar();
 
 		}
 	}
 
-
-	//i = (getchar() - '0');
-	//getchar(); //считываем -
-	//j = (getchar() - '0');
-	//graph[i - 1][j - 1]++;
 
 	//if (graph[i - 1][j - 1] > 1) printf("граф не дерево\n");
 	//if (i == j) {
