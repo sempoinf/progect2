@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 int N;
-int **graph;//tree
+int** graph;//tree
 
 int main(void) {
 	int c;//число вершин
@@ -15,9 +15,9 @@ int main(void) {
 	printf("%d\n", N);
 	getchar();
 
-	printf("")
+	printf("");
 
-	int **graph = (int**)calloc(N, sizeof(int *));
+		int** graph = (int**)calloc(N, sizeof(int*));
 	for (int i = 0; i < N; i++) {
 		graph[i] = (int*)calloc(N, sizeof(int));
 	}
@@ -31,7 +31,7 @@ int main(void) {
 
 	printf("Input the graph: ");
 
-	FILE *file;
+	FILE* file;
 	file = fopen("./graph.gv", "w+t");
 	//write file
 	fprintf(file, "graph Homework {\n");
@@ -46,7 +46,7 @@ int main(void) {
 			}
 			j = (getchar() - '0');
 			fprintf(file, "%d\n", j);
-			graph[i-1][j-1]++;
+			graph[i - 1][j - 1]++;
 			getchar();
 
 		}
@@ -67,9 +67,10 @@ int main(void) {
 
 
 	for (i = 0; i < N; i++) {
-	for (j = 0; j < N; j++)
-		printf("%d", graph[i][j]);
-}
+		for (j = 0; j < N; j++)
+			printf("%d", graph[i][j]);
+		getchar();
+	}
 
 
 
