@@ -8,11 +8,12 @@ int * b;
 
 
 int main(void) {
-	int c;//число вершин
+	int N;//число вершин
 	int i, j = 0;
 	int check = 0;
-	int  tops, ribs;
+	int  tops = 0; 
 	int count = 0;
+	int ribs=0;
 	FILE* result;
 	
 	
@@ -44,12 +45,14 @@ int main(void) {
 	for (i = 0; i < N; i++) {
 		for (j = 0; j < N; j++) {
 			i = (getchar() - '0');
-			fprintf(file, "\t%d -- ", i);
-			if (getchar() == ('\n')) {
-				fprintf(file, "%d\n", i); // печать несвязной вершины
-				graph[i - 1][i - 1]++;
-				break;
-			}
+
+			//fprintf(file, "\t%d -- ", i);
+			//if (getchar() == ('\n')) {
+				//fprintf(file, "%d\n", i); // печать несвязной вершины
+				//graph[i - 1][i - 1]++;
+				//break;
+			//}
+			
 			j = (getchar() - '0');
 			fprintf(file, "%d\n", j);
 			graph[i - 1][j - 1]++;
@@ -58,8 +61,8 @@ int main(void) {
 		}
 	}
 	fprintf(file, "}");
-	//close file
-	fclose(file);
+	
+	
 	
 
 	
@@ -98,39 +101,40 @@ int main(void) {
 
 	//Связанность
 
-	b = (int*)malloc(N * sizeof(int));
-	for (int i = 0; i < N; i++) {
-		b[i] = 0;
-	}
+	//b = (int*)malloc(N * sizeof(int));
+	//for (int i = 0; i < N; i++) {
+		//b[i] = 0;
+	//}
+	//for (int i = 0; i <= N; i++) {
+		//b[graph[i]] ++;
+	//}
 	for (int i = 0; i <= N; i++) {
-		b[graph[i]] ++;
-	}
-	for (int i = 0; i <= N; i++) {
-		if (b[i] > 0)
+		if (graph[i] > 0)
 			tops++;
 	}
 
-	//printf("ribs = %d, tops = %d", ribs, tops);
+	printf("ribs = %d, tops = %d", ribs, tops);
 
 
-	//if (check == 0) {
-		//if ((ribs) >= (tops - 1)) {
-			//check = 0;
-		//}
-		//else {
-		//	check = 3;
-		//}
-	//}
+	if (check == 0) {
+		if ((ribs) >= (tops - 1)) {
+			check = 0;
+		}
+		else {
+			check = 3;
+		}
+	}
 
 	//Цикл
 
 
-	//if (check == 0) {
-		//if ((tops - ribs) != 1) {
-		//	check = 4;
-		//}
-	//}
-
+	if (check == 0) {
+		if ((tops - ribs) != 1) {
+			check = 4;
+		}
+	}
+	//close file
+	fclose(file);
 	result = fopen("result.txt", "w");
 	fprintf(result, "Result:\n");
 	if (check != 0) {
