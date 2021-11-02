@@ -45,14 +45,12 @@ int main(void) {
 	for (i = 0; i < N; i++) {
 		for (j = 0; j < N; j++) {
 			i = (getchar() - '0');
-
-			//fprintf(file, "\t%d -- ", i);
-			//if (getchar() == ('\n')) {
-				//fprintf(file, "%d\n", i); // печать несвязной вершины
-				//graph[i - 1][i - 1]++;
-				//break;
-			//}
-			
+			fprintf(file, "\t%d -- ", i);
+			if (getchar() == ('\n')) {
+				fprintf(file, "%d\n", i); // печать несвязной вершины
+				graph[i - 1][i - 1]++;
+				break;
+			}
 			j = (getchar() - '0');
 			fprintf(file, "%d\n", j);
 			graph[i - 1][j - 1]++;
