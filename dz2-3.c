@@ -2,17 +2,17 @@
 
 #include <stdio.h>
 #include<stdlib.h>
-int N;
+int N;//число вершин
 int** graph;//tree
 
 
 int main(void) {
-	int N;//число вершин
-	int i, j = 0;
+	int i = 0;
+	int j = 0;
 	int check = 0;
 	int  tops = 0; 
 	int count = 0;
-	int ribs=0;
+	int ribs = 0;
 	FILE* result;
 	
 	
@@ -45,6 +45,9 @@ int main(void) {
 		for (j = 0; j < N; j++) {
 			i = (getchar() - '0');
 			fprintf(file, "\t%d -- ", i);
+			if (getchar() == ('-')) {
+				ribs++;
+			}
 			if (getchar() == ('\n')) {
 				fprintf(file, "%d\n", i); // печать несвязной вершины
 				graph[i - 1][i - 1]++;
