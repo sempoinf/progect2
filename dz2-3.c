@@ -4,7 +4,6 @@
 #include<stdlib.h>
 int N;
 int** graph;//tree
-int * b;
 
 
 int main(void) {
@@ -22,7 +21,7 @@ int main(void) {
 	printf("%d\n", N);
 	getchar();
 
-	printf("");
+	
 
 		int** graph = (int**)calloc(N, sizeof(int*));
 	for (int i = 0; i < N; i++) {
@@ -99,20 +98,13 @@ int main(void) {
 
 	//Связанность
 
-	//b = (int*)malloc(N * sizeof(int));
-	//for (int i = 0; i < N; i++) {
-		//b[i] = 0;
-	//}
-	//for (int i = 0; i <= N; i++) {
-		//b[graph[i]] ++;
-	//}
 	for (int i = 0; i <= N; i++) {
 		if (graph[i] > 0)
 			tops++;
 	}
 
 	printf("ribs = %d, tops = %d", ribs, tops);
-
+	printf("\n");
 
 	if (check == 0) {
 		if ((ribs) >= (tops - 1)) {
