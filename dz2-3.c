@@ -45,14 +45,12 @@ int main(void) {
 		for (j = 0; j < N; j++) {
 			i = (getchar() - '0');
 			fprintf(file, "\t%d -- ", i);
-			if (getchar() == ('-')) {
-				ribs++;
-			}
 			if (getchar() == ('\n')) {
 				fprintf(file, "%d\n", i); // печать несвязной вершины
 				graph[i - 1][i - 1]++;
 				break;
 			}
+			else ribs++;
 			j = (getchar() - '0');
 			fprintf(file, "%d\n", j);
 			graph[i - 1][j - 1]++;
