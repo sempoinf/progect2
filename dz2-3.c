@@ -64,11 +64,11 @@ int main(void) {
 	
 
 	
-	for (i = 0; i < N; i++) {
-		for (j = 0; j < N; j++)
-			printf("%d", graph[i][j]);
-		getchar();
-	}
+	//for (i = 0; i < N; i++) {
+		//for (j = 0; j < N; j++)
+			//printf("%d", graph[i][j]);
+		//getchar();
+	//}
 
 	
 	//Processing Graph
@@ -104,8 +104,8 @@ int main(void) {
 			tops++;
 	}
 
-	printf("ribs = %d, tops = %d", ribs, tops);
-	printf("\n");
+	//printf("ribs = %d, tops = %d", ribs, tops);
+	//printf("\n");
 
 	if (check == 0) {
 		if ((ribs) >= (tops - 1)) {
