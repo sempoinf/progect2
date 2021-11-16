@@ -8,8 +8,7 @@ int** graph;//tree
 
 
 int main(void) {
-  int i = 0;
-  int j = 0;
+  int i,j;
   int check = 0;
   int  tops = 0;
   int count = 0;
