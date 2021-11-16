@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include<stdlib.h>
+
 int N;//число вершин
 int** graph;//tree
 
@@ -24,7 +25,7 @@ int main(void) {
 	
 
 		int** graph = (int**)calloc(N, sizeof(int*));
-	for (int i = 0; i < N; i++) {
+	for (int i = 1; i <= N; i++) {
 		graph[i] = (int*)calloc(N, sizeof(int));
 	}
 
@@ -41,19 +42,19 @@ int main(void) {
 	file = fopen("./graph.gv", "w+t");
 	//write file
 	fprintf(file, "graph Homework {\n");
-	for (i = 0; i < N; i++) {
-		for (j = 0; j < N; j++) {
+	for (i = 1; i <= N; i++) {
+		for (j = 1; j <= N; j++) {
 			i = (getchar() - '0');
-			fprintf(file, "\t%d -- ", i);
-			if (getchar() == ('\n')) {
+				if (getchar() == ('\n')) {
 				fprintf(file, "%d\n", i); // печать несвязной вершины
-				graph[i - 1][i - 1]++;
+				graph[i]++;
 				break;
-			}
-			else ribs++;
+				}
+				else ribs++;
+			fprintf(file, "\t%d -- ", i);
 			j = (getchar() - '0');
 			fprintf(file, "%d\n", j);
-			graph[i - 1][j - 1]++;
+			graph[i][j]++;
 			getchar();
 
 		}
@@ -64,8 +65,8 @@ int main(void) {
 	
 
 	
-	//for (i = 0; i < N; i++) {
-		//for (j = 0; j < N; j++)
+	//for (i = 1; i <= N; i++) {
+		//for (j = 1; j <= N; j++)
 			//printf("%d", graph[i][j]);
 		//getchar();
 	//}
@@ -78,7 +79,7 @@ int main(void) {
   // Петля
 
 	if (check == 0) {
-		for (int j = 0; j < N; j++) {
+		for (int j = 1; j <= N; j++) {
 			if (graph[j][j] == 1) {
 				check = 1;
 				break;
@@ -88,8 +89,8 @@ int main(void) {
 	// =
 
 	if (check == 0) {
-		for (int i = 0; i < N; i++)
-			for (int j = 1; j < N; j++) {
+		for (int i = 1; i <= N; i++)
+			for (int j = 1; j <= N; j++) {
 				if (((graph[j][i] == 1) && (graph[i][j] == 1)) || (graph[j][i] > 1) || ((graph[i][j] > 1))) {
 					check = 2;
 					break;
@@ -99,7 +100,7 @@ int main(void) {
 
 	//Связанность
 
-	for (int i = 0; i <= N; i++) {
+	for (int i = 1; i <= N; i++) {
 		if (graph[i] > 0)
 			tops++;
 	}
